@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop - ViTech</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .product-image img {
+      width: 210px;
+      height: 250px;
+      object-fit: cover;
+    }
+  </style>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">ViTech</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="shop.html" class="active">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="cart.html" class="cart-icon">🛒</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="shop-hero">
+      <div class="container">
+        <h1>Our Products</h1>
+        <p>Discover our range of high-quality tech accessories</p>
+      </div>
+    </section>
+
+    <section class="shop-section">
+      <div class="container">
+        <div class="shop-tools">
+          <input type="text" id="searchInput" placeholder="Search products..." />
+          <select id="categoryFilter">
+            <option value="all">All Categories</option>
+            <option value="Chargers">Chargers</option>
+            <option value="Cables">Cables</option>
+            <option value="Computer">Computer</option>
+            <option value="Desktop">Desktop</option>
+          </select>
+        </div>
+        <div class="product-grid" id="productGrid">
+          <!-- Products will be injected here -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 ViTech Inc., All Rights Reserved</p>
+    </div>
+  </footer>
+</body>
+</html>

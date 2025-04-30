@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart - ViTech</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body class="gradient-bg">
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">ViTech</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="cart.html" class="cart-icon active">🛒</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="cart-hero">
+      <div class="container">
+        <h1>Your Cart</h1>
+        <div class="cart-box">
+          <div class="cart-items" id="cartItems">
+            <!-- Cart items will be injected here -->
+          </div>
+          <div class="cart-summary">
+            <p class="total"><strong>Total: $<span id="cartTotal">0.00</span></strong></p>
+            <div class="cart-actions">
+              <button id="clearCart" class="btn-secondary">Clear Cart</button>
+              <button class="btn-primary">Proceed to Checkout</button>
+            </div>
+          </div>
+        </div>
+        <p class="hero-subtitle">Free shipping on orders over $50</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 ViTech Inc., All Rights Reserved</p>
+    </div>
+  </footer>
+</body>
+</html>
