@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+  updateCartCount();
+
   const products = [
     { name: "USB-C Fast Charger", category: "Chargers", price: 15.99, image: "images/usb-c-fast-charger.jpg" },
     { name: "Multi-USB Charging Cable", category: "Chargers", price: 19.99, image: "images/multi-usb-charging-cable.jpg" },
@@ -133,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-    alert(`${product.name} added to cart.`);
+    updateCartCount();
   }
 
   function setupAddToCartButtons(filteredProducts) {
@@ -237,39 +239,17 @@ document.addEventListener("DOMContentLoaded", () => {
       if (newQuantity < 1) {
         // Remove item if quantity becomes 0
         cart.splice(itemIndex, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        renderCart();
+        updateCartCount();
       } else {
         // Update quantity
         cart[itemIndex].quantity = newQuantity;
+        localStorage.setItem("cart", JSON.stringify(cart));
+        renderCart();
+        updateCartCount();
       }
-      localStorage.setItem("cart", JSON.stringify(cart));
-      renderCart();
-      updateCartCount();
-      
-      // Show feedback message
-      showFeedbackMessage(newQuantity < 1 ? "Item removed from cart" : "Quantity updated");
     }
-  }
-
-  function showFeedbackMessage(message) {
-    // Remove any existing feedback message
-    const existingMessage = document.querySelector('.feedback-message');
-    if (existingMessage) {
-      existingMessage.remove();
-    }
-
-    // Create new feedback message
-    const feedbackMessage = document.createElement('div');
-    feedbackMessage.className = 'feedback-message';
-    feedbackMessage.textContent = message;
-    
-    // Add to cart box
-    const cartBox = document.querySelector('.cart-box');
-    cartBox.insertBefore(feedbackMessage, cartBox.firstChild);
-    
-    // Remove after 3 seconds
-    setTimeout(() => {
-      feedbackMessage.remove();
-    }, 3000);
   }
 
   function removeFromCart(productName) {
@@ -293,17 +273,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Initialize cart count when page loads
-  document.addEventListener('DOMContentLoaded', () => {
-    updateCartCount();
-    renderCart();
-  });
-
   if (cartItemsContainer && cartTotalEl && clearCartBtn) {
     renderCart();
     clearCartBtn.addEventListener("click", () => {
       localStorage.removeItem("cart");
       renderCart();
+      updateCartCount();
     });
   }
 
@@ -320,7 +295,6 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       const cart = JSON.parse(localStorage.getItem('cart')) || [];
       if (cart.length === 0) {
-        showFeedbackMessage("Your cart is empty");
         return;
       }
       // Store cart total in localStorage before redirecting
