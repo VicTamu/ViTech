@@ -6,8 +6,8 @@ import { defineConfig } from 'vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  // Use root path for GitHub Pages
-  base: '/',
+  // Project Pages: app is served at https://victamu.github.io/ViTech/
+  base: '/ViTech/',
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

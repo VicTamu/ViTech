@@ -1,21 +1,23 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { useCart } from '@/context/CartContext'
 
+const BASE = import.meta.env.BASE_URL || '/'
+const withBase = (p) => `${BASE.replace(/\/$/, '')}${p}`
 const PRODUCTS = [
-  { name: 'USB-C Fast Charger', category: 'Chargers', price: 15.99, image: '/images/usb-c-fast-charger.jpg' },
-  { name: 'Multi-USB Charging Cable', category: 'Chargers', price: 19.99, image: '/images/multi-usb-charging-cable.jpg' },
-  { name: 'Magnetic Charging Cable', category: 'Chargers', price: 13.49, image: '/images/magnetic-charging-cable.jpg' },
-  { name: 'HDMI 4K Cable', category: 'Cables', price: 6.99, image: '/images/hdmi-4k-cable.jpg' },
-  { name: 'USB-C to HDMI Adapter', category: 'Cables', price: 14.99, image: '/images/usb-c-hdmi-adapter.jpg' },
-  { name: '25ft. CAT6 Ethernet Cable', category: 'Cables', price: 5.89, image: '/images/ethernet-cable.jpg' },
-  { name: 'Power Strip', category: 'Cables', price: 12.79, image: '/images/power-strip.jpg' },
-  { name: 'Wireless Keyboard', category: 'Computer', price: 29.99, image: '/images/wireless-keyboard.jpg' },
-  { name: 'Gaming Mouse', category: 'Computer', price: 23.99, image: '/images/gaming-mouse.jpg' },
-  { name: 'USB Hub (4-Port)', category: 'Computer', price: 12.99, image: '/images/usb-hub.jpg' },
-  { name: 'Laptop Stand', category: 'Desktop', price: 54.99, image: '/images/laptop-stand.jpg' },
-  { name: 'Desktop Monitor', category: 'Desktop', price: 97.49, image: '/images/desktop-monitor.jpg' },
-  { name: 'Monitor Arm Mount', category: 'Desktop', price: 42.99, image: '/images/monitor-mount.jpg' },
-  { name: 'Apple Desktop Monitor', category: 'Desktop', price: 287.99, image: '/images/apple-desktop-monitor.jpg' },
+  { name: 'USB-C Fast Charger', category: 'Chargers', price: 15.99, image: withBase('/images/usb-c-fast-charger.jpg') },
+  { name: 'Multi-USB Charging Cable', category: 'Chargers', price: 19.99, image: withBase('/images/multi-usb-charging-cable.jpg') },
+  { name: 'Magnetic Charging Cable', category: 'Chargers', price: 13.49, image: withBase('/images/magnetic-charging-cable.jpg') },
+  { name: 'HDMI 4K Cable', category: 'Cables', price: 6.99, image: withBase('/images/hdmi-4k-cable.jpg') },
+  { name: 'USB-C to HDMI Adapter', category: 'Cables', price: 14.99, image: withBase('/images/usb-c-hdmi-adapter.jpg') },
+  { name: '25ft. CAT6 Ethernet Cable', category: 'Cables', price: 5.89, image: withBase('/images/ethernet-cable.jpg') },
+  { name: 'Power Strip', category: 'Cables', price: 12.79, image: withBase('/images/power-strip.jpg') },
+  { name: 'Wireless Keyboard', category: 'Computer', price: 29.99, image: withBase('/images/wireless-keyboard.jpg') },
+  { name: 'Gaming Mouse', category: 'Computer', price: 23.99, image: withBase('/images/gaming-mouse.jpg') },
+  { name: 'USB Hub (4-Port)', category: 'Computer', price: 12.99, image: withBase('/images/usb-hub.jpg') },
+  { name: 'Laptop Stand', category: 'Desktop', price: 54.99, image: withBase('/images/laptop-stand.jpg') },
+  { name: 'Desktop Monitor', category: 'Desktop', price: 97.49, image: withBase('/images/desktop-monitor.jpg') },
+  { name: 'Monitor Arm Mount', category: 'Desktop', price: 42.99, image: withBase('/images/monitor-mount.jpg') },
+  { name: 'Apple Desktop Monitor', category: 'Desktop', price: 287.99, image: withBase('/images/apple-desktop-monitor.jpg') },
 ]
 
 function addToCartLegacy() {}
