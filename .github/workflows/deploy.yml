@@ -35,6 +35,10 @@ jobs:
         working-directory: rootskelly
         run: npm run build
 
+      - name: Add SPA fallback (404.html)
+        run: |
+          cp rootskelly/dist/index.html rootskelly/dist/404.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
